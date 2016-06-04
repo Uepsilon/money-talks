@@ -1,5 +1,27 @@
-<% @messages.each do |message| %>
-  <div class="message">
-    <%= message.message %>
+<div class="ui middle aligned grid">
+  <div class="three wide computer nine wide tablet six wide mobile column">
+  <h1 class="">Your Messages:</h1>
+  <div class="ui segments">
+   <% @messages.each do |message| %>
+    <div class="ui segment">
+      <div class="ui card">
+        <div class="ui image">
+          <div class="visible content">
+            <img class="ui fluid image" src="../images/user.png">
+          </div>
+        </div>
+        <div class="content">
+          <div class="header"><%= message.sender_name %></div>
+          <div class="meta">
+            <a class="group"><%= message.recieved_at.strftime('%d.%m.%Y') %></a>
+          </div>
+          <div class="description"><%= message.message %></div>
+        </div>
+        <div class="extra content">
+          <a class="right floated created"><%= message.amount %> €</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>
