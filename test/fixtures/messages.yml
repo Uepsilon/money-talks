@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipient_id: 1
+  sender_name: MyString
+  sender_id: 1
+  iban: MyString
+  message: MyString
+  recieved_at: 2016-06-04 16:36:21
+  amount: 
+
+two:
+  recipient_id: 1
+  sender_name: MyString
+  sender_id: 1
+  iban: MyString
+  message: MyString
+  recieved_at: 2016-06-04 16:36:21
+  amount: 

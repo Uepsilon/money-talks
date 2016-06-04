@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :messages, foreign_key: 'recipient_id'
+
   # sorcery
   authenticates_with_sorcery!
 

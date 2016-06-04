@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604125954) do
+ActiveRecord::Schema.define(version: 20160604143621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "recipient_id",                            null: false
+    t.string   "sender_name"
+    t.integer  "sender_id"
+    t.string   "iban"
+    t.string   "message"
+    t.datetime "recieved_at"
+    t.decimal  "amount",         precision: 10, scale: 2
+    t.string   "transaction_id",                          null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "messages", ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+  add_index "messages", ["transaction_id"], name: "index_messages_on_transaction_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
