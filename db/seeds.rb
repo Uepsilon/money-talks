@@ -1,4 +1,6 @@
 u1 = User.create! username: 'test', password: 'Test1234', password_confirmation: 'Test1234', pb_id: 'Funk1', pb_pw: 'AbC12345'
+u2 = User.create! username: 'maxim', password: 'Test1234', password_confirmation: 'Test1234', pb_id: 'Funk1', pb_pw: 'AbC12345'
+u3 = User.create! username: 'marcel', password: 'Test1234', password_confirmation: 'Test1234', pb_id: 'Funk1', pb_pw: 'AbC12345'
 
 Message.create! recipient: u1, sender_name: 'Hans Wurst', iban: '12345', message: 'Ich lebe!', recieved_at: 5.days.ago, amount: 0.01, transaction_id: 'TRANS1'
 Message.create! recipient: u1, sender_name: 'Hans Wurst', iban: '12345', message: 'Spam', recieved_at: 5.days.ago, amount: 0.01, transaction_id: 'TRANS2'

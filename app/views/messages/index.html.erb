@@ -1,27 +1,31 @@
 <div class="ui middle aligned grid">
   <div class="three wide computer nine wide tablet six wide mobile column">
-  <h1 class="">Your Messages:</h1>
-  <div class="ui segments">
-   <% @messages.each do |message| %>
-    <div class="ui segment">
-      <div class="ui card">
-        <div class="ui image">
-          <div class="visible content">
-            <img class="ui fluid image" src="../images/user.png">
-          </div>
-        </div>
-        <div class="content">
-          <div class="header"><%= message.sender_name %></div>
-          <div class="meta">
-            <a class="group"><%= message.recieved_at.strftime('%d.%m.%Y') %></a>
-          </div>
-          <div class="description"><%= message.message %></div>
-        </div>
-        <div class="extra content">
-          <a class="right floated created"><%= message.amount %> €</a>
+  <h1 class="">Messages:</h1>
+  <form class="ui form">
+    <div class="field">
+      <div class="ui dropdown labeled search normal selection">
+        <input id="user" type="hidden" name="user" value="">
+        <span class="text">Empfänger:</span>
+        <div class="menu">
+          <% @users.each do |item| %>
+            <div class="item" data-value="<%= item.id %>"><%= item.username %></div>
+          <% end %>
         </div>
       </div>
     </div>
+    <div class="field">
+      <textarea id="message" rows="2"></textarea>
+    </div>
+    <div class="field">
+      <input id="amount"></input>
+    </div>
+    <div class="actions">
+      <button id="send" class="ui fluid large teal submit button">Send</button>
+    </div>
+  </form>
+  <div id="messages" class="ui segments">
+   <% @messages.each do |message| %>
+    <%= render 'message', message: message %>
   <% end %>
   </div>
 </div>
